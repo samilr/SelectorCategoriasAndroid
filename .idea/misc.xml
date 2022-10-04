@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/samil/AndroidStudioProjects/Tarea4/app/src/main/res/layout/activity_alert.xml" value="0.25" />
+        <entry key="..\:/Users/samil/AndroidStudioProjects/Tarea4/app/src/main/res/layout/activity_alert.xml" value="0.33" />
         <entry key="..\:/Users/samil/AndroidStudioProjects/Tarea4/app/src/main/res/layout/activity_alert_edit.xml" value="0.33" />
+        <entry key="..\:/Users/samil/AndroidStudioProjects/Tarea4/app/src/main/res/layout/activity_custom_alert.xml" value="0.36041666666666666" />
         <entry key="..\:/Users/samil/AndroidStudioProjects/Tarea4/app/src/main/res/layout/activity_main.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/samil/AndroidStudioProjects/Tarea4/app/src/main/res/layout/alert.xml" value="0.1757852077001013" />
+        <entry key="..\:/Users/samil/AndroidStudioProjects/Tarea4/app/src/main/res/layout/layout_error_dialog.xml" value="0.2703125" />
+        <entry key="..\:/Users/samil/AndroidStudioProjects/Tarea4/app/src/main/res/layout/layout_warning_dialog.xml" value="0.18333333333333332" />
       </map>
     </option>
   </component>

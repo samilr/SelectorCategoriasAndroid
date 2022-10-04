@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/fondo"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="414dp"
+        android:layout_height="547dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="270dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginLeft="32dp"
+            app:srcCompat="@drawable/yo" />
+
+        <TextView
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="370dp"
+            android:text="Nombre:"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/txbNombre"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="361dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="133dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="430dp"
+            android:text="Asignatura:"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/txbAsignatura"
+            android:layout_width="155dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="427dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="490dp"
+            android:text="Institucion:"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/txbInstituto"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="480dp"
+            android:textSize="20sp" />
+    </FrameLayout>
+</FrameLayout>

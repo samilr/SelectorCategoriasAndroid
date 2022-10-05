@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="185dp"
             android:layout_marginTop="370dp"
-            android:text="Samir"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="italic" />
@@ -54,7 +53,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="185dp"
             android:layout_marginTop="430dp"
-            android:text="Mobile"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="italic" />
@@ -75,7 +73,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="185dp"
             android:layout_marginTop="490dp"
-            android:text="ITLA"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="italic" />

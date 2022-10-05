@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+
+import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,23 +18,23 @@ import android.widget.ImageView;
 import android.content.Context;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.widget.TextView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
-
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener{
+
     CheckBox persona, carro, musica, calle;
     Button btnMostrarImg, btnEditar, btnVerInfo;
     ImageView imagenMostrar;
-    Alert AlertaBuilder = new Alert();
-    AlertEdit AlertaBuilderEdit = new AlertEdit();
+    EditText txbNombre, txbAsignatura, txbInstituto, txb;
+    TextView txtNombre, txtAsignatura, txtInstituto, txt;
+
     private static final String TAG = "Swipe Position";
     private float x1, x2, y1, y2;
     private static int MIN_DISTANCE = 150;
     private GestureDetector gestureDetector;
-
+    String nombre = "Samir", asignatura = "Mobile", instituto = "ITLA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,17 +91,57 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         }
     }
 
-    public void alertDialog(View view){
-        AlertaBuilder.show(getSupportFragmentManager(), "Ejemplo");
+    public void alertEdit(View view){
+        LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+        final  AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        final View vistaAlertEdit = inflater.inflate(R.layout.activity_alert_edit, null);
+
+        txbNombre = vistaAlertEdit.findViewById(R.id.txbNombre);
+        txbAsignatura = vistaAlertEdit.findViewById(R.id.txbAsignatura);
+        txbInstituto = vistaAlertEdit.findViewById(R.id.txbInstituto);
+
+        txbNombre.setText(nombre);
+        txbAsignatura.setText(asignatura);
+        txbInstituto.setText(instituto);
+
+        builder.setView(vistaAlertEdit)
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            nombre = txbNombre.getText().toString();
+                            asignatura = txbAsignatura.getText().toString();
+                            instituto = txbInstituto.getText().toString();
+                        }
+                    }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+            builder.create();
+            builder.show();
     }
 
-    public void alertDialogEdit(View view){
-        AlertaBuilderEdit.show(getSupportFragmentManager(), "Ejemplo");
+    public void alertInfo(View view){
+        LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+        final  AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        final View vistaAlertEdit = inflater.inflate(R.layout.activity_alert, null);
+
+        txtNombre = vistaAlertEdit.findViewById(R.id.txtNombre);
+        txtAsignatura = vistaAlertEdit.findViewById(R.id.txtAsignatura);
+        txtInstituto = vistaAlertEdit.findViewById(R.id.txtInstituto);
+
+        builder.setView(vistaAlertEdit)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        txtNombre.setText(nombre);
+        txtAsignatura.setText(asignatura);
+        txtInstituto.setText(instituto);
+        builder.create();
+        builder.show();
     }
-
-
-
-
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

@@ -52,6 +52,7 @@
             android:textSize="20dp" />
     </FrameLayout>
 
+
     <Button
         android:id="@+id/btnMostrarImg"
         android:layout_width="200dp"
@@ -77,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="65dp"
         android:layout_marginTop="550dp"
-        android:onClick="alertDialogEdit"
+        android:onClick="alertEdit"
         android:text="Editar" />
 
     <Button
@@ -86,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="215dp"
         android:layout_marginTop="550dp"
-        android:onClick="alertDialog"
+        android:onClick="alertInfo"
         android:text="Ver Info" />
 
     <ImageView
@@ -104,5 +105,6 @@
         android:layout_marginLeft="-110dp"
         android:layout_marginTop="600dp"
         app:srcCompat="@drawable/right" />
+
 
 </FrameLayout>

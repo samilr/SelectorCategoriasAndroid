@@ -21,6 +21,7 @@ import android.content.DialogInterface;
 import android.widget.TextView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener{
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     ImageView imagenMostrar;
     EditText txbNombre, txbAsignatura, txbInstituto, txb;
     TextView txtNombre, txtAsignatura, txtInstituto, txt;
+
 
     private static final String TAG = "Swipe Position";
     private float x1, x2, y1, y2;
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         btnMostrarImg = findViewById(R.id.btnMostrarImg);
         btnEditar = findViewById(R.id.btnEditar);
         btnVerInfo = findViewById(R.id.btnVerInfo);
+
     }
 
     public void isChecked(View view) {

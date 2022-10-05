@@ -1,13 +1,6 @@
 package com.example.tarea4;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-
-import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,13 +8,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.content.Context;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.TextView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.widget.Toolbar;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener{
 
@@ -30,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     ImageView imagenMostrar;
     EditText txbNombre, txbAsignatura, txbInstituto, txb;
     TextView txtNombre, txtAsignatura, txtInstituto, txt;
-
 
     private static final String TAG = "Swipe Position";
     private float x1, x2, y1, y2;
@@ -55,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         btnMostrarImg = findViewById(R.id.btnMostrarImg);
         btnEditar = findViewById(R.id.btnEditar);
         btnVerInfo = findViewById(R.id.btnVerInfo);
-
     }
 
     public void isChecked(View view) {
@@ -107,12 +97,14 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         txbAsignatura.setText(asignatura);
         txbInstituto.setText(instituto);
 
-        builder.setView(vistaAlertEdit)
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+        builder.setView(vistaAlertEdit).setTitle("Edtar Informacion")
+                    .setPositiveButton("Guardar", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             nombre = txbNombre.getText().toString();
                             asignatura = txbAsignatura.getText().toString();
                             instituto = txbInstituto.getText().toString();
+                            Toast.makeText(MainActivity.this,
+                                    "Se actualizo la informacion", Toast.LENGTH_LONG).show();
                         }
                     }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
@@ -133,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         txtAsignatura = vistaAlertEdit.findViewById(R.id.txtAsignatura);
         txtInstituto = vistaAlertEdit.findViewById(R.id.txtInstituto);
 
-        builder.setView(vistaAlertEdit)
+        builder.setView(vistaAlertEdit).setTitle("Informacion")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -181,9 +173,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
 
     @Override
-    public void onShowPress(MotionEvent motionEvent) {
-
-    }
+    public void onShowPress(MotionEvent motionEvent) {}
 
     @Override
     public boolean onSingleTapUp(MotionEvent motionEvent) {
@@ -196,9 +186,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
 
     @Override
-    public void onLongPress(MotionEvent motionEvent) {
-
-    }
+    public void onLongPress(MotionEvent motionEvent) {}
 
     @Override
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {

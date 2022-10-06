@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         txbAsignatura.setText(asignatura);
         txbInstituto.setText(instituto);
 
-        builder.setView(vistaAlertEdit).setTitle("Edtar Informacion")
+        builder.setView(vistaAlertEdit).setTitle("Editar Informacion")
                     .setPositiveButton("Guardar", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             nombre = txbNombre.getText().toString();

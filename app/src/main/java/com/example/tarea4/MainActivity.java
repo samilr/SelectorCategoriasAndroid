@@ -38,51 +38,69 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
 
     public void inicial() {
-        persona = findViewById(R.id.cbPersona);
-        carro = findViewById(R.id.cbCarro);
-        musica = findViewById(R.id.cbMusica);
-        calle = findViewById(R.id.cbCalle);
         imagenMostrar = findViewById(R.id.imgImagen);
         btnMostrarImg = findViewById(R.id.btnMostrarImg);
         btnEditar = findViewById(R.id.btnEditar);
         btnVerInfo = findViewById(R.id.btnVerInfo);
     }
 
-    public void isChecked(View view) {
-        if (persona.isChecked() && carro.isChecked() && musica.isChecked() && calle.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.musicacaroopersona);
-        } else if (persona.isChecked() && carro.isChecked() && musica.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.pcm);
-        } else if (persona.isChecked() && calle.isChecked() && musica.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.pcam);
-        } else if (persona.isChecked() && calle.isChecked() && carro.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.personacarrocalle);
-        } else if (musica.isChecked() && calle.isChecked() && carro.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.musicacallecarro);
-        } else if (persona.isChecked() && musica.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.personamusica);
-        } else if (persona.isChecked() && carro.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.personacarro);
-        } else if (persona.isChecked() && calle.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.personacalle);
-        } else if (musica.isChecked() && calle.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.musicacalle);
-        } else if (musica.isChecked() && carro.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.musicacarro);
-        } else if (calle.isChecked() && carro.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.carrocalle);
-        } else if (persona.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.persona);
-        } else if (carro.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.carro);
-        } else if (musica.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.musica);
-        } else if (calle.isChecked()) {
-            imagenMostrar.setImageResource(R.drawable.calle);
-        } else {
-            imagenMostrar.setImageResource(R.drawable.error);
-        }
+    public void mostrarCheckBox(View view){
+        LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+        final  AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        final View vistaAlertEdit = inflater.inflate(R.layout.activity_alert_categorias, null);
+
+        persona = vistaAlertEdit.findViewById(R.id.cbPersona);
+        carro = vistaAlertEdit.findViewById(R.id.cbCarro);
+        musica = vistaAlertEdit.findViewById(R.id.cbMusica);
+        calle = vistaAlertEdit.findViewById(R.id.cbCalle);
+
+        builder.setView(vistaAlertEdit).setTitle("Seleciona las categorias")
+                .setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        if (persona.isChecked() && carro.isChecked() && musica.isChecked() && calle.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.musicacaroopersona);
+                        } else if (persona.isChecked() && carro.isChecked() && musica.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.pcm);
+                        } else if (persona.isChecked() && calle.isChecked() && musica.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.pcam);
+                        } else if (persona.isChecked() && calle.isChecked() && carro.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.personacarrocalle);
+                        } else if (musica.isChecked() && calle.isChecked() && carro.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.musicacallecarro);
+                        } else if (persona.isChecked() && musica.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.personamusica);
+                        } else if (persona.isChecked() && carro.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.personacarro);
+                        } else if (persona.isChecked() && calle.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.personacalle);
+                        } else if (musica.isChecked() && calle.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.musicacalle);
+                        } else if (musica.isChecked() && carro.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.musicacarro);
+                        } else if (calle.isChecked() && carro.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.carrocalle);
+                        } else if (persona.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.persona);
+                        } else if (carro.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.carro);
+                        } else if (musica.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.musica);
+                        } else if (calle.isChecked()) {
+                            imagenMostrar.setImageResource(R.drawable.calle);
+                        } else {
+                            imagenMostrar.setImageResource(R.drawable.error);
+                        }
+                    }
+                }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        builder.create();
+        builder.show();
     }
+
 
     public void alertEdit(View view){
         LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
